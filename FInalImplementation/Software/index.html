@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-TileColor" content="#2196f3">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="theme-color" content="#2196f3">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="./">
+    <meta name="description"
+          content="Progressive Web Application for serial communication with your own Bluetooth Low Energy (Smart) devices">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+    <title>Team 13 Smart Energy</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#2196f3">
+    <link rel="shortcut icon" href="icons/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="app">
+
+        <div class="toolbar">
+
+            <div id="device-name" class="name">Team 13 Smart Energy</div>
+
+            <div class="buttons">
+
+                <button id="connect" type="button" aria-label="Connect">
+                    <i class="material-icons">bluetooth_connected</i>
+                </button>
+
+                <button id="disconnect" type="button" aria-label="Disconnect">
+                    <i class="material-icons">bluetooth_disabled</i>
+                </button>
+
+            </div>
+
+        </div>
+        <div id="graph" class="graph">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div vlass="card-body">
+        
+                        <!-- <h1>Team 13 Smart Energy<button class="btn btn-success" onclick="updateChart()">Update</button><buttonclass="btn btn-success" onclick="clearChart()">Clear</button></h1> -->
+                    </div>
+                    <div vlass="card-body">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        
+           
+        
+        
+        
+            
+
+
+        </div>
+        <div id="terminal" class="terminal"></div>
+        
+
+        <!-- <form id="send-form" class="send-form">
+
+            <input id="input" type="text" aria-label="Input" autocomplete="off" placeholder="Type something to send...">
+
+            <button type="submit" aria-label="Send">
+                <i class="material-icons">send</i>
+            </button>
+
+        </form> -->
+
+    </div>
+
+    <script src="js/BluetoothTerminal.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/companion.js" data-service-worker="sw.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+            </script>
+
+
+             <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                var i = 0
+                var writeCounter = 0;
+                var value0 = 0;
+                var value1 = 0;
+                var value2 = 0;
+                const labels = [
+                    '0',
+                    '1',
+                    '2',
+                    '3',
+                    '4',
+                    '5',
+                    '6',
+                    '7',
+                    '8',
+                    '9',
+                    '10',
+                    '11',
+                    '12',
+                    '13',
+                    '14',
+                    '15',
+                    '16',
+                    '17',
+                    '18',
+                    '19',
+                    '20',
+                ];
+        
+                const data = {
+                    labels: labels,
+                    datasets: [{
+                        fill: 'origin',
+                        label: 'Voltage',
+                        //backgroundColor: 'rgb(82, 85, 89)',
+                        borderColor: 'rgb(30, 30, 255)',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        tension: 0.2
+                    }, {
+                        fill: 'origin',
+                        label: 'Current',
+                        //backgroundColor: 'rgb(82, 85, 89)',
+                        borderColor: 'rgb(230, 30, 30)',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        tension: 0.2
+                    }, {
+                        fill: 'origin',
+                        label: 'Power',
+                        //backgroundColor: 'rgb(82, 85, 89)',
+                        borderColor: 'rgb(30, 230, 30)',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        tension: 0.2
+                    }]
+                };
+        
+                const config = {
+                    type: 'line',
+                    data: data,
+                    options: {}
+                };
+        
+                function updateChart() {
+                    //myChart.data.labels.push(i);
+
+        
+                    // myChart.data.datasets[0].data.push[11];
+                    // myChart.data.datasets[1].data.push[4];
+                    // myChart.data.datasets[2].data.push[12];
+                    i = i + 1;
+                    myChart.update();
+                };
+        
+                function clearChart() {
+                    i = 0;
+                    myChart.data.datasets[0].data = [];
+                    myChart.data.datasets[1].data = [];
+                    myChart.data.datasets[2].data = [];
+                    myChart.data.labels = []
+        
+                    myChart.update();
+                };
+                var dataCheckBit = 1;
+
+                function manipulateValues(transmission){
+
+                    if(dataCheckBit > 3){
+                        dataCheckBit = 1;
+                    }
+                    if(writeCounter > 20){
+                        writeCounter= 0;
+                    }
+                    
+                    var uartTrans = transmission.split(": ").pop();
+                    console.log(uartTrans);
+
+                    if(dataCheckBit == 1){
+                        //value0 = uartTrans;
+                        myChart.data.datasets[0].data[writeCounter] = uartTrans;
+                    }else if(dataCheckBit == 2){
+                        //value1 = uartTrans;
+                        myChart.data.datasets[1].data[writeCounter] = uartTrans/100;
+                    }else if(dataCheckBit == 3){
+                        //value2 = uartTrans;
+                        myChart.data.datasets[2].data[writeCounter] = uartTrans;
+                        updateChart();
+                        writeCounter++;
+                    }
+                    
+                    dataCheckBit++
+                }
+
+                const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config
+                );
+            </script>
+
+
+</body>
+</html>

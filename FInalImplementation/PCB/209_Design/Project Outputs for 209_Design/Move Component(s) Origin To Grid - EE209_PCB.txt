@@ -1,0 +1,63 @@
+Move Component(s) Origin to Grid
+Filename     : C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc
+Date         : 06/09/2022
+Time         : 12:41:15
+Time Elapsed : 00:00:00
+
+
+    DIP Component U3-LM324 (2820mil,2900mil) on Top Layer - Component origin is already ON grid.
+    DIP Component U2-ATmega328PB Xplained Mini Header (3100mil,2875mil) on Top Layer - Component origin is already ON grid.
+    Small Component U1-L78L05ACZ (2324.055mil,2020mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component TP_Vzc-5003 (2025mil,2460mil) on Top Layer - Component origin is already ON grid.
+    Small Component TP_Vvf-5003 (5655mil,2870mil) on Top Layer - Component origin is already ON grid.
+    Small Component TP_Vif-5003 (5640mil,2675mil) on Top Layer - Component origin is already ON grid.
+    Small Component TP_Tx-5003 (1810mil,3790mil) on Top Layer - Component origin is already ON grid.
+    Small Component TP_Offset-5003 (3160mil,3450mil) on Top Layer - Component origin is already ON grid.
+    Small Component TP_GND2-5003 (4470mil,3560mil) on Top Layer - Component origin is already ON grid.
+    Small Component TP_GND1-5003 (4465mil,3380mil) on Top Layer - Component origin is already ON grid.
+    Small Component TP_5V-5003 (2025mil,2645mil) on Top Layer - Component origin is already ON grid.
+    Small Component R20-* (1590mil,3290mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R19-* (2235mil,2610mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R18-* (3920mil,3050mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R17-* (3756.666mil,2465mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R16-* (1790mil,3300mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R15-* (4055mil,2460mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R14-* (2455mil,2620mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R13-* (3607.5mil,2460mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R12-* (3160mil,2457.402mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R11-* (3325mil,3080mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R10-* (3309.167mil,2460mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R9-* (3905.833mil,2465mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R8-* (3458.333mil,2460mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R7-* (3625mil,3070mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R6-* (4235mil,1337.402mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R5-* (4065mil,1337.402mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R4-* (3805mil,1785mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R3-* (3305mil,1785mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component R2-* (4405mil,1337.402mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component R1-* (2200mil,1780mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    DIP Component P4-Display (3235mil,4425mil) on Top Layer - Component origin is already ON grid.
+    SIP Component P2-BLE Module Header (1755mil,2180mil) on Top Layer - Component origin is already ON grid.
+    Small Component P1-Dual Banana Plugs (2630mil,1297.402mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component J1-DC barrel jack (3605mil,1346.614mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component D6-BZX79-CXVX (3810mil,2085mil) on Top Layer - Component origin is already ON grid.
+    Small Component D5-BZX79-CXVX (3810mil,1955mil) on Top Layer - Component origin is already ON grid.
+    Small Component D4-BZX79-CXVX (3302.402mil,2085mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component D3-BZX79-CXVX (3302.402mil,1955mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component D2-Green (4410mil,1987.402mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component D1-1N4007 (2755mil,1785mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C14-* (2240mil,3250mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C13-* (3775mil,3065mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C12-* (4445mil,2695mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C11-* (2875mil,2255mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C10-* (3180mil,3080mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C9-* (4455mil,3055mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C8-* (3480mil,3075mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C7-* (2595mil,2065mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C6-* (2050mil,2065mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C5-* (4410mil,2342.402mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component C4-* (1654.213mil,1415mil) on Top Layer - Component pads are OFF grid. No action taken.
+    Small Component C3-* (2305mil,3675mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C2-* (1655mil,1785mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+    Small Component C1-* (2790mil,3680mil) on Top Layer - Component origin is already ON grid. - Component pads are OFF grid. No action taken.
+count : 55

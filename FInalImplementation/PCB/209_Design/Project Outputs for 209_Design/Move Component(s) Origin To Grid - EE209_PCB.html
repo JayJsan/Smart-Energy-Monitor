@@ -1,0 +1,368 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 { 
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body { 
+			font-family : segoe ui;
+		}
+
+		td, th {  
+			padding: 0.5em;
+			text-align : left;
+		}
+		th { 
+			background-color : #EEEEEE;
+		
+		}
+		th.column1, td.column1 { 
+			width : 50%; 
+		}
+
+        th.column2, td.column2 {
+            width : 25%;
+        }
+
+		table { 
+			width : 100%; 
+            font-size: 0.9em;
+		}
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 5em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error { 
+			color : red;
+			font-weight : bold;
+		}	
+		tr.onmouseout_odd { 
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+			
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);		
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {	
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}	
+	</script><title>Move Component(s) Origin to Grid</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD22\Templates\AD_logo.png
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Move Component(s) Origin to Grid</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">06/09/2022</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">12:41:15</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc" class="file"><acronym title="C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc">C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc</acronym></a></td>
+</tr>
+</table><a name="IDNF4QMPSCAMEZC2QVRNDR5BSNVKYEINO0IPWIAFBRHZHPN3GDTZRH"><h2>Components Origin</h2></a><a name="IDJR4V2GQZF4UDD3WU0CXT5DU0LMCOWO1CEODFOTGOSP3IMUUSKG3G"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning"></th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2619.603mil|Location2.X=3032.598mil|Location1.Y=2494.488mil|Location2.Y=3405.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2619.603mil|Location2.X=3032.598mil|Location1.Y=2494.488mil|Location2.Y=3405.981mil|Absolute=True">DIP Component U3-LM324 (2820mil,2900mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1899mil|Location2.X=4300mil|Location1.Y=1720mil|Location2.Y=4819.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1899mil|Location2.X=4300mil|Location1.Y=1720mil|Location2.Y=4819.981mil|Absolute=True">DIP Component U2-ATmega328PB Xplained Mini Header (3100mil,2875mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2222mil|Location2.X=2445.315mil|Location1.Y=1918.267mil|Location2.Y=2182.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2222mil|Location2.X=2445.315mil|Location1.Y=1918.267mil|Location2.Y=2182.981mil|Absolute=True">Small Component U1-L78L05ACZ (2324.055mil,2020mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1970mil|Location2.X=2329.89mil|Location1.Y=2405.079mil|Location2.Y=2624.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1970mil|Location2.X=2329.89mil|Location1.Y=2405.079mil|Location2.Y=2624.981mil|Absolute=True">Small Component TP_Vzc-5003 (2025mil,2460mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5600mil|Location2.X=5939.896mil|Location1.Y=2815.079mil|Location2.Y=3034.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5600mil|Location2.X=5939.896mil|Location1.Y=2815.079mil|Location2.Y=3034.981mil|Absolute=True">Small Component TP_Vvf-5003 (5655mil,2870mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5585mil|Location2.X=5914.9mil|Location1.Y=2620.079mil|Location2.Y=2839.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5585mil|Location2.X=5914.9mil|Location1.Y=2620.079mil|Location2.Y=2839.981mil|Absolute=True">Small Component TP_Vif-5003 (5640mil,2675mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1755mil|Location2.X=2054.91mil|Location1.Y=3735.079mil|Location2.Y=3954.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1755mil|Location2.X=2054.91mil|Location1.Y=3735.079mil|Location2.Y=3954.981mil|Absolute=True">Small Component TP_Tx-5003 (1810mil,3790mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3105mil|Location2.X=3604.845mil|Location1.Y=3395.079mil|Location2.Y=3614.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3105mil|Location2.X=3604.845mil|Location1.Y=3395.079mil|Location2.Y=3614.981mil|Absolute=True">Small Component TP_Offset-5003 (3160mil,3450mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4415mil|Location2.X=4834.871mil|Location1.Y=3505.079mil|Location2.Y=3724.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4415mil|Location2.X=4834.871mil|Location1.Y=3505.079mil|Location2.Y=3724.981mil|Absolute=True">Small Component TP_GND2-5003 (4470mil,3560mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4410mil|Location2.X=4809.877mil|Location1.Y=3325.079mil|Location2.Y=3544.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4410mil|Location2.X=4809.877mil|Location1.Y=3325.079mil|Location2.Y=3544.981mil|Absolute=True">Small Component TP_GND1-5003 (4465mil,3380mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1970mil|Location2.X=2269.91mil|Location1.Y=2590.079mil|Location2.Y=2809.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1970mil|Location2.X=2269.91mil|Location1.Y=2590.079mil|Location2.Y=2809.981mil|Absolute=True">Small Component TP_5V-5003 (2025mil,2645mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1538.915mil|Location2.X=1718.948mil|Location1.Y=3043.402mil|Location2.Y=3636.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1538.915mil|Location2.X=1718.948mil|Location1.Y=3043.402mil|Location2.Y=3636.981mil|Absolute=True">Small Component R20-* (1590mil,3290mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2183.915mil|Location2.X=2353.952mil|Location1.Y=2363.402mil|Location2.Y=2956.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2183.915mil|Location2.X=2353.952mil|Location1.Y=2363.402mil|Location2.Y=2956.981mil|Absolute=True">Small Component R19-* (2235mil,2610mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3868.915mil|Location2.X=4038.952mil|Location1.Y=2803.402mil|Location2.Y=3396.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3868.915mil|Location2.X=4038.952mil|Location1.Y=2803.402mil|Location2.Y=3396.981mil|Absolute=True">Small Component R18-* (3920mil,3050mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3705.582mil|Location2.X=3875.952mil|Location1.Y=2218.402mil|Location2.Y=2811.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3705.582mil|Location2.X=3875.952mil|Location1.Y=2218.402mil|Location2.Y=2811.981mil|Absolute=True">Small Component R17-* (3756.666mil,2465mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1738.915mil|Location2.X=1908.951mil|Location1.Y=3053.402mil|Location2.Y=3646.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1738.915mil|Location2.X=1908.951mil|Location1.Y=3053.402mil|Location2.Y=3646.981mil|Absolute=True">Small Component R16-* (1790mil,3300mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4003.915mil|Location2.X=4173.952mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4003.915mil|Location2.X=4173.952mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True">Small Component R15-* (4055mil,2460mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2403.915mil|Location2.X=2573.952mil|Location1.Y=2373.402mil|Location2.Y=2966.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2403.915mil|Location2.X=2573.952mil|Location1.Y=2373.402mil|Location2.Y=2966.981mil|Absolute=True">Small Component R14-* (2455mil,2620mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3556mil|Location2.X=3725.952mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3556mil|Location2.X=3725.952mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True">Small Component R13-* (3607.5mil,2460mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.915mil|Location2.X=3278.952mil|Location1.Y=2210.803mil|Location2.Y=2803.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.915mil|Location2.X=3278.952mil|Location1.Y=2210.803mil|Location2.Y=2803.981mil|Absolute=True">Small Component R12-* (3160mil,2457.402mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3273.915mil|Location2.X=3424.232mil|Location1.Y=2833.402mil|Location2.Y=3426.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3273.915mil|Location2.X=3424.232mil|Location1.Y=2833.402mil|Location2.Y=3426.981mil|Absolute=True">Small Component R11-* (3325mil,3080mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3258mil|Location2.X=3427.952mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3258mil|Location2.X=3427.952mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True">Small Component R10-* (3309.167mil,2460mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3854.748mil|Location2.X=3974.968mil|Location1.Y=2218.402mil|Location2.Y=2811.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3854.748mil|Location2.X=3974.968mil|Location1.Y=2218.402mil|Location2.Y=2811.981mil|Absolute=True">Small Component R9-* (3905.833mil,2465mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3407mil|Location2.X=3526.968mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3407mil|Location2.X=3526.968mil|Location1.Y=2213.402mil|Location2.Y=2806.981mil|Absolute=True">Small Component R8-* (3458.333mil,2460mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3573.915mil|Location2.X=3693.968mil|Location1.Y=2823.402mil|Location2.Y=3416.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3573.915mil|Location2.X=3693.968mil|Location1.Y=2823.402mil|Location2.Y=3416.981mil|Absolute=True">Small Component R7-* (3625mil,3070mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4183.915mil|Location2.X=4303.968mil|Location1.Y=1090.803mil|Location2.Y=1683.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4183.915mil|Location2.X=4303.968mil|Location1.Y=1090.803mil|Location2.Y=1683.981mil|Absolute=True">Small Component R6-* (4235mil,1337.402mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4013.915mil|Location2.X=4133.968mil|Location1.Y=1090.803mil|Location2.Y=1684.382mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4013.915mil|Location2.X=4133.968mil|Location1.Y=1090.803mil|Location2.Y=1684.382mil|Absolute=True">Small Component R5-* (4065mil,1337.402mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3558mil|Location2.X=4051.598mil|Location1.Y=1733.915mil|Location2.Y=1935.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3558mil|Location2.X=4051.598mil|Location1.Y=1733.915mil|Location2.Y=1935.981mil|Absolute=True">Small Component R4-* (3805mil,1785mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3058mil|Location2.X=3551.598mil|Location1.Y=1733.915mil|Location2.Y=1935.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3058mil|Location2.X=3551.598mil|Location1.Y=1733.915mil|Location2.Y=1935.981mil|Absolute=True">Small Component R3-* (3305mil,1785mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4353.915mil|Location2.X=4473.968mil|Location1.Y=1090.803mil|Location2.Y=1684.382mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4353.915mil|Location2.X=4473.968mil|Location1.Y=1090.803mil|Location2.Y=1684.382mil|Absolute=True">Small Component R2-* (4405mil,1337.402mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1953mil|Location2.X=2446.598mil|Location1.Y=1728.915mil|Location2.Y=1930.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1953mil|Location2.X=2446.598mil|Location1.Y=1728.915mil|Location2.Y=1930.981mil|Absolute=True">Small Component R1-* (2200mil,1780mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2195.63mil|Location2.X=4518.462mil|Location1.Y=4267.52mil|Location2.Y=6493.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2195.63mil|Location2.X=4518.462mil|Location1.Y=4267.52mil|Location2.Y=6493.981mil|Absolute=True">DIP Component P4-Display (3235mil,4425mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1526.653mil|Location2.X=1808.937mil|Location1.Y=1976.063mil|Location2.Y=2978.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1526.653mil|Location2.X=1808.937mil|Location1.Y=1976.063mil|Location2.Y=2978.981mil|Absolute=True">SIP Component P2-BLE Module Header (1755mil,2180mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1925mil|Location2.X=3334.724mil|Location1.Y=1043.465mil|Location2.Y=1655.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1925mil|Location2.X=3334.724mil|Location1.Y=1043.465mil|Location2.Y=1655.981mil|Absolute=True">Small Component P1-Dual Banana Plugs (2630mil,1297.402mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.96mil|Location2.X=3850.142mil|Location1.Y=1043.465mil|Location2.Y=1749.595mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3419.96mil|Location2.X=3850.142mil|Location1.Y=1043.465mil|Location2.Y=1749.595mil|Absolute=True">Small Component J1-DC barrel jack (3605mil,1346.614mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3576mil|Location2.X=4044mil|Location1.Y=2032.83mil|Location2.Y=2236.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3576mil|Location2.X=4044mil|Location1.Y=2032.83mil|Location2.Y=2236.981mil|Absolute=True">Small Component D6-BZX79-CXVX (3810mil,2085mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3576mil|Location2.X=4044mil|Location1.Y=1902.83mil|Location2.Y=2106.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3576mil|Location2.X=4044mil|Location1.Y=1902.83mil|Location2.Y=2106.981mil|Absolute=True">Small Component D5-BZX79-CXVX (3810mil,1955mil) on Top Layer</acronym></a> - Component origin is already ON grid.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3068mil|Location2.X=3536.402mil|Location1.Y=2032.83mil|Location2.Y=2236.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3068mil|Location2.X=3536.402mil|Location1.Y=2032.83mil|Location2.Y=2236.981mil|Absolute=True">Small Component D4-BZX79-CXVX (3302.402mil,2085mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3068mil|Location2.X=3536.402mil|Location1.Y=1902.83mil|Location2.Y=2106.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3068mil|Location2.X=3536.402mil|Location1.Y=1902.83mil|Location2.Y=2106.981mil|Absolute=True">Small Component D3-BZX79-CXVX (3302.402mil,1955mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4287.89mil|Location2.X=4532.11mil|Location1.Y=1865.291mil|Location2.Y=2209.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4287.89mil|Location2.X=4532.11mil|Location1.Y=1865.291mil|Location2.Y=2209.981mil|Absolute=True">Small Component D2-Green (4410mil,1987.402mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.535mil|Location2.X=3008.465mil|Location1.Y=1723.976mil|Location2.Y=1945.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2501.535mil|Location2.X=3008.465mil|Location1.Y=1723.976mil|Location2.Y=1945.981mil|Absolute=True">Small Component D1-1N4007 (2755mil,1785mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2157mil|Location2.X=2326.952mil|Location1.Y=3088.583mil|Location2.Y=3510.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2157mil|Location2.X=2326.952mil|Location1.Y=3088.583mil|Location2.Y=3510.981mil|Absolute=True">Small Component C14-* (2240mil,3250mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3692mil|Location2.X=3861.952mil|Location1.Y=2903.583mil|Location2.Y=3325.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3692mil|Location2.X=3861.952mil|Location1.Y=2903.583mil|Location2.Y=3325.981mil|Absolute=True">Small Component C13-* (3775mil,3065mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4362mil|Location2.X=4531.952mil|Location1.Y=2533.583mil|Location2.Y=2955.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4362mil|Location2.X=4531.952mil|Location1.Y=2533.583mil|Location2.Y=2955.981mil|Absolute=True">Small Component C12-* (4445mil,2695mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2713.583mil|Location2.X=3036.417mil|Location1.Y=2172.323mil|Location2.Y=2437.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2713.583mil|Location2.X=3036.417mil|Location1.Y=2172.323mil|Location2.Y=2437.981mil|Absolute=True">Small Component C11-* (2875mil,2255mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3097mil|Location2.X=3266.952mil|Location1.Y=2918.583mil|Location2.Y=3340.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3097mil|Location2.X=3266.952mil|Location1.Y=2918.583mil|Location2.Y=3340.981mil|Absolute=True">Small Component C10-* (3180mil,3080mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4372mil|Location2.X=4537.677mil|Location1.Y=2893.583mil|Location2.Y=3315.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4372mil|Location2.X=4537.677mil|Location1.Y=2893.583mil|Location2.Y=3315.981mil|Absolute=True">Small Component C9-* (4455mil,3055mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3397mil|Location2.X=3562.677mil|Location1.Y=2913.583mil|Location2.Y=3335.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3397mil|Location2.X=3562.677mil|Location1.Y=2913.583mil|Location2.Y=3335.981mil|Absolute=True">Small Component C8-* (3480mil,3075mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2512mil|Location2.X=2677.677mil|Location1.Y=1903.583mil|Location2.Y=2325.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2512mil|Location2.X=2677.677mil|Location1.Y=1903.583mil|Location2.Y=2325.981mil|Absolute=True">Small Component C7-* (2595mil,2065mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1967mil|Location2.X=2132.677mil|Location1.Y=1903.583mil|Location2.Y=2325.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1967mil|Location2.X=2132.677mil|Location1.Y=1903.583mil|Location2.Y=2325.981mil|Absolute=True">Small Component C6-* (2050mil,2065mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4268mil|Location2.X=4551.732mil|Location1.Y=2163.268mil|Location2.Y=2583.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4268mil|Location2.X=4551.732mil|Location1.Y=2163.268mil|Location2.Y=2583.981mil|Absolute=True">Small Component C5-* (4410mil,2342.402mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1512mil|Location2.X=1833.346mil|Location1.Y=1273.268mil|Location2.Y=1656.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1512mil|Location2.X=1833.346mil|Location1.Y=1273.268mil|Location2.Y=1656.981mil|Absolute=True">Small Component C4-* (1654.213mil,1415mil) on Top Layer</acronym></a> - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2143.583mil|Location2.X=2466.417mil|Location1.Y=3592.323mil|Location2.Y=3857.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2143.583mil|Location2.X=2466.417mil|Location1.Y=3592.323mil|Location2.Y=3857.981mil|Absolute=True">Small Component C3-* (2305mil,3675mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1493.583mil|Location2.X=1816.417mil|Location1.Y=1702.323mil|Location2.Y=1967.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1493.583mil|Location2.X=1816.417mil|Location1.Y=1702.323mil|Location2.Y=1967.981mil|Absolute=True">Small Component C2-* (1655mil,1785mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2628.583mil|Location2.X=2951.417mil|Location1.Y=3597.323mil|Location2.Y=3862.981mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Daniel Martinez\Documents\GitHub\ee209-2022-project-team13\Daniel\PCB_Design\209_Design\EE209_PCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2628.583mil|Location2.X=2951.417mil|Location1.Y=3597.323mil|Location2.Y=3862.981mil|Absolute=True">Small Component C1-* (2790mil,3680mil) on Top Layer</acronym></a> - Component origin is already ON grid. - Component pads are OFF grid. No action taken.</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
